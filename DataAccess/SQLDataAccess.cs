@@ -66,43 +66,51 @@ namespace DataAccess
 
         public List<OrderDetail> GetOrderDetail(int orderId)
         {
-            SqlDataReader reader;
-            List<OrderDetail> orderDetail = new List<OrderDetail>();
-            string query = "SELECT od.Id, od.OrderId, od.ProductId, p.Name ProductName , od.Amount, od.Price" + Environment.NewLine;
-            query += "FROM OrdersDetail od" + Environment.NewLine;
-            query += "INNER JOIN Products p ON p.Id = od.ProductId" + Environment.NewLine;
-            query += "WHERE od.OrderId = @OrderId";
-
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
-            using (SqlCommand cmd = new SqlCommand(query, conn))
+            try
             {
-                cmd.Parameters.AddWithValue("@OrderId", orderId);
+                SqlDataReader reader;
+                List<OrderDetail> orderDetail = new List<OrderDetail>();
+                string query = "SELECT od.Id, od.OrderId, od.ProductId, p.Name ProductName , od.Amount, od.Price" + Environment.NewLine;
+                query += "FROM OrdersDetail od" + Environment.NewLine;
+                query += "INNER JOIN Products p ON p.Id = od.ProductId" + Environment.NewLine;
+                query += "WHERE od.OrderId = @OrderId";
 
-                conn.Open();
-
-                reader = cmd.ExecuteReader();
-
-                if (reader.HasRows)
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    while (reader.Read())
+                    cmd.Parameters.AddWithValue("@OrderId", orderId);
+
+                    conn.Open();
+
+                    reader = cmd.ExecuteReader();
+
+                    if (reader.HasRows)
                     {
-                        orderDetail.Add(new OrderDetail{
-                            Id = reader.GetInt32(0),
-                            OrderId = reader.GetInt32(1),
-                            Product = new Product
+                        while (reader.Read())
+                        {
+                            orderDetail.Add(new OrderDetail
                             {
-                                Id = reader.GetInt32(2),
-                                Name = reader.GetString(3)
-                            },
-                            Amount = reader.GetInt32(4),
-                            Price = reader.GetDecimal(5)
-                        });                        
+                                Id = reader.GetInt32(0),
+                                OrderId = reader.GetInt32(1),
+                                Product = new Product
+                                {
+                                    Id = reader.GetInt32(2),
+                                    Name = reader.GetString(3)
+                                },
+                                Amount = reader.GetInt32(4),
+                                Price = reader.GetDecimal(5)
+                            });
+                        }
                     }
+
+                    conn.Close();
+
+                    return orderDetail;
                 }
-
-                conn.Close();
-
-                return orderDetail;
+            }
+            catch
+            {
+                return new List<OrderDetail>();
             }
         }
     }
