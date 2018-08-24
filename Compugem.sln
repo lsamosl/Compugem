@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compugem", "Compugem\Compug
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfCompugem", "WcfCompugem\WcfCompugem.csproj", "{77546264-F03F-4A63-89A6-242C116DBAEC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessObjects", "Data\BusinessObjects.csproj", "{87B2A97A-40DC-48E4-A125-54F7BE4AE1F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{C8A8CBBB-ADA4-4433-9003-5FFB94F6E07D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{77546264-F03F-4A63-89A6-242C116DBAEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77546264-F03F-4A63-89A6-242C116DBAEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77546264-F03F-4A63-89A6-242C116DBAEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87B2A97A-40DC-48E4-A125-54F7BE4AE1F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87B2A97A-40DC-48E4-A125-54F7BE4AE1F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87B2A97A-40DC-48E4-A125-54F7BE4AE1F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87B2A97A-40DC-48E4-A125-54F7BE4AE1F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8A8CBBB-ADA4-4433-9003-5FFB94F6E07D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8A8CBBB-ADA4-4433-9003-5FFB94F6E07D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8A8CBBB-ADA4-4433-9003-5FFB94F6E07D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8A8CBBB-ADA4-4433-9003-5FFB94F6E07D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
