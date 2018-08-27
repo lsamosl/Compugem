@@ -57,5 +57,10 @@ namespace WcfCompugem
 
             return orderDetail;
         }
+
+        public string HelloWorld(string name)
+        {
+            return "Hello World "+name;
+        }
     }
 }

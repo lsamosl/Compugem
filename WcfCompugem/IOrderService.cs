@@ -17,6 +17,8 @@ namespace WcfCompugem
         [OperationContract]
         List<DCOrderDetail> GetOrderDetailByOrderId(int orderId);
 
+        [OperationContract]
+        string HelloWorld(string name);
     }
 
     [DataContract]
